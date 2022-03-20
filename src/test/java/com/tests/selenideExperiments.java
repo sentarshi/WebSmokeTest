@@ -26,6 +26,7 @@ public class selenideExperiments {
 
 	@Test
 	public static void Signin() throws CloneNotSupportedException {
+		Configuration.browser = "firefox";
 		Configuration.browserSize = "1920x1080";
 		open("https://webqa.fbowlapp.com");
 
