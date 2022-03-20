@@ -10,7 +10,7 @@ import java.io.IOException;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class selenideExperiments {
+public class SuccessfulRegularRegistration {
 	static testDataParser testdataclass;
 	@BeforeTest
 
