@@ -14,7 +14,6 @@ public class testDataParser {
 	private final Gson GSON = new Gson();
 	private HashMap<String, String> testData = new HashMap<>();
 
-
 	public testDataParser read() throws IOException {
 		this.testData = GSON.fromJson(fileReader(), testData.getClass());
 		return this;
