@@ -2,8 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SmoketestWebapp" verbose="1" >
     <test name="SuccessfulRegistration" >
-        <packages>
-            <package name="com.tests" />
-        </packages>
+        <classes>
+        <class name="com.tests.SuccessfulRegularRegistration"></class>
+        </classes>
+    </test>
+    <test name="SuspendedUser" >
+        <classes>
+            <class name="com.tests.SuspendedUser"></class>
+        </classes>
     </test>
 </suite>

@@ -2,6 +2,7 @@ package com.tests;
 import com.codeborne.selenide.Configuration;
 import com.pages.*;
 import com.util.testDataParser;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class SuccessfulRegularRegistration {
+public class SuccessfulRegularRegistration extends BaseTest {
 	static testDataParser testdataclass;
 	@BeforeTest
 
@@ -29,7 +30,6 @@ public class SuccessfulRegularRegistration {
 		Configuration.browser = "firefox";
 		Configuration.browserSize = "1920x1080";
 		open("https://webqa.fbowlapp.com");
-
 		MainPage.openSignUp();
 		SignUpPage.selectImPro();
 		SignUpPage.enterWorkEmailDomain(testdataclass.getData("emaildomain"));
@@ -50,5 +50,9 @@ public class SuccessfulRegularRegistration {
 		DownloadAppModal.closemodal();
 		UpdatePictureModal.noimage();
 		HomeScreenPage.ensure();
+	}
+	@AfterTest
+	private static void borwserclose(){
+		closeWindow();
 	}
 }

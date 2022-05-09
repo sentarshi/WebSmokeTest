@@ -13,6 +13,7 @@ public class MainPage extends BasePage {
 	private static SelenideElement	aboutButton = mainMenu.$(By.linkText("About"));
 	private static SelenideElement commGuidlinesButton = mainMenu.$(By.linkText("Community Guidelines"));
 	private static SelenideElement signUpButton = mainMenu.$(By.linkText("Sign Up"));
+	private static SelenideElement logInButton = mainMenu.$(By.linkText("Login"));
 
 	//Open Insights page
 	public static void openInsights(){
@@ -22,4 +23,5 @@ public class MainPage extends BasePage {
 		aboutButton.click();
 	}
 	public static void openSignUp(){signUpButton.click();};
+	public static void openLogin(){logInButton.click();};
 }
