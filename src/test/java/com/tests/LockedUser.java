@@ -2,10 +2,7 @@ package com.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.pages.LoginPage;
-import com.pages.MainPage;
-import com.pages.RegistrationModal;
-import com.pages.SuspendPage;
+import com.pages.*;
 import com.util.testDataParser;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -33,11 +30,12 @@ public class LockedUser {
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
         MainPage.openLogin();
-        LoginPage.enterSuspendedEmail(testdataclass.getData("emaildomain"));
+        LoginPage.enterLockedEmail(testdataclass.getData("emaildomain"));
         RegistrationModal.enterVerificationEmalCode();
-        SuspendPage.errorIcon.shouldBe(Condition.visible);
-        SuspendPage.suspendModal.shouldBe(Condition.visible);
+        LockedPage.COntactSupportButton.shouldBe(Condition.visible);
+        LockedPage.verifyEmailButton.shouldBe(Condition.visible);
+        LockedPage.verifyLinkedinButton.shouldBe(Condition.visible);
     }
 
 }
-}
+
