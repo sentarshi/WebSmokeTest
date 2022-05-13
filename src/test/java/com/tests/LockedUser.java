@@ -14,8 +14,7 @@ import java.io.IOException;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class SuspendedUser {
-
+public class LockedUser {
     static testDataParser testdataclass;
     @BeforeTest
 
@@ -37,7 +36,8 @@ public class SuspendedUser {
         LoginPage.enterSuspendedEmail(testdataclass.getData("emaildomain"));
         RegistrationModal.enterVerificationEmalCode();
         SuspendPage.errorIcon.shouldBe(Condition.visible);
-       SuspendPage.suspendModal.shouldBe(Condition.visible);
+        SuspendPage.suspendModal.shouldBe(Condition.visible);
     }
 
+}
 }
