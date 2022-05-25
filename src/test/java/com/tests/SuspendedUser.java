@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.pages.LoginPage;
 import com.pages.MainPage;
-import com.pages.RegistrationModal;
+import com.pages.VerificationCodeModal;
 import com.pages.SuspendPage;
 import com.util.testDataParser;
 import org.testng.annotations.BeforeTest;
@@ -29,13 +29,13 @@ public class SuspendedUser {
             }
         }}
     @Test
-    public static void Signin() throws CloneNotSupportedException {
+    public static void Signin() throws Exception {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
         MainPage.openLogin();
         LoginPage.enterSuspendedEmail(testdataclass.getData("emaildomain"));
-        RegistrationModal.enterVerificationEmalCode();
+        VerificationCodeModal.enterVerificationEmalCode();
         SuspendPage.errorIcon.shouldBe(Condition.visible);
         SuspendPage.suspendModal.shouldBe(Condition.exist);
     }

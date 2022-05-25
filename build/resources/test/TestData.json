@@ -1,3 +1,4 @@
 {
-"emaildomain": "kk.com"
+  "emaildomain": "kk.com",
+  "debugmaildomain": "yandex.ua"
 }

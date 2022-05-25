@@ -1,18 +1,24 @@
 package com.tests;
 import com.codeborne.selenide.Configuration;
 import com.pages.*;
+import com.util.EmailUtils;
 import com.util.testDataParser;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.*;
 
 
 public class SuccessfulRegularRegistration extends BaseTest {
+
 	static testDataParser testdataclass;
+	private static EmailUtils emailUtils;
 	@BeforeTest
 
 	public static void parseTestData(){
@@ -24,16 +30,26 @@ public class SuccessfulRegularRegistration extends BaseTest {
 			e.printStackTrace();
 		}
 	}}
+	@BeforeTest
+	public static void connectToEmail() {
+		try {
+			emailUtils = new EmailUtils("sentarshi@yandex.ua", "jZ$SD7GmzRby", "smtp.yandex.ru", EmailUtils.EmailFolder.INBOX);
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.fail(e.getMessage());
+		}
+	}
+
 
 	@Test
-	public static void Signin() throws CloneNotSupportedException {
+	public static void Signin() throws Exception {
 		Configuration.browser = "firefox";
 		Configuration.browserSize = "1920x1080";
 		open("https://webqa.fbowlapp.com");
 		MainPage.openSignUp();
 		SignUpPage.selectImPro();
-		SignUpPage.enterWorkEmailDomain(testdataclass.getData("emaildomain"));
-		RegistrationModal.enterVerificationEmalCode();
+		SignUpPage.enterWorkEmailDomain(testdataclass.getData("debugmaildomain"));
+		VerificationCodeModal.enterVerificationEmalCode();
 		PYMKPage.pushNext();
 		DivisionAndCrowdPage.chooseDivisionCrowd();
 		DivisionAndCrowdPage.pushNext();
@@ -55,4 +71,6 @@ public class SuccessfulRegularRegistration extends BaseTest {
 	private static void borwserclose(){
 		closeWindow();
 	}
+
+
 }
