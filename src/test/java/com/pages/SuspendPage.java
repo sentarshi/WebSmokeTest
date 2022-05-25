@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SuspendPage extends BasePage {
     public static SelenideElement errorIcon = $("img[alt='Error icon']");
-    public static SelenideElement suspendModal = $(new ByText(" has been suspended"));
+    public static SelenideElement suspendModal = $(new ByText("has been suspended"));
 
 
 }

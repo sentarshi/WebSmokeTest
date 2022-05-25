@@ -2,10 +2,7 @@ package com.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.pages.LoginPage;
-import com.pages.MainPage;
-import com.pages.VerificationCodeModal;
-import com.pages.SuspendPage;
+import com.pages.*;
 import com.util.testDataParser;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -14,8 +11,7 @@ import java.io.IOException;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class SuspendedUser {
-
+public class LockedUser {
     static testDataParser testdataclass;
     @BeforeTest
 
@@ -29,15 +25,17 @@ public class SuspendedUser {
             }
         }}
     @Test
-    public static void Signin() throws Exception {
+    public static void Signin() throws CloneNotSupportedException {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
         MainPage.openLogin();
-        LoginPage.enterSuspendedEmail(testdataclass.getData("emaildomain"));
-        VerificationCodeModal.enterVerificationEmalCode();
-        SuspendPage.errorIcon.shouldBe(Condition.visible);
-       SuspendPage.suspendModal.shouldBe(Condition.visible);
+        LoginPage.enterLockedEmail(testdataclass.getData("emaildomain"));
+        RegistrationModal.enterVerificationEmalCode();
+        LockedPage.COntactSupportButton.shouldBe(Condition.visible);
+        LockedPage.verifyEmailButton.shouldBe(Condition.visible);
+        LockedPage.verifyLinkedinButton.shouldBe(Condition.visible);
     }
 
 }
+

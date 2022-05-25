@@ -16,4 +16,9 @@ public class LoginPage extends BasePage {
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
+    public static void enterLockedEmail(String text) {
+        String email = "autolock";
+        emailInputField.sendKeys(email + "@" + text);
+        submitButtonEmailField.click();
     }
+}

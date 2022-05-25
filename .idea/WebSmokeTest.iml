@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/src/test/java/com">
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/com" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java/com/tests" isTestSource="true" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="fishbowlWebAppSmoke.test" exported="" />
+  </component>
+</module>
