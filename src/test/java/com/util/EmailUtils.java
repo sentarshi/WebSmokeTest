@@ -1,5 +1,7 @@
 package com.util;
 
+import com.google.common.base.CharMatcher;
+
 import javax.mail.*;
 import javax.mail.search.SubjectTerm;
 import java.io.BufferedReader;
@@ -11,7 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EmailUtils {
-    private Folder folder;
+    private static Folder folder;
 
     public enum EmailFolder {
         INBOX("INBOX"),
@@ -57,13 +59,14 @@ public class EmailUtils {
     public EmailUtils(String username, String password, String server, EmailFolder emailFolder) throws MessagingException {
         Properties props = System.getProperties();
         try {
-            props.load(new FileInputStream(new File("resources/email.properties")));
+            props.load(new FileInputStream(new File("src/test/resources/email.properties")));
         } catch(Exception e) {
             e.printStackTrace();
             System.exit(-1);
         }
 
         Session session = Session.getInstance(props);
+        session.setDebug(true);
         Store store = session.getStore("imaps");
         store.connect(server, username, password);
 
@@ -103,7 +106,7 @@ public class EmailUtils {
         message.getContent();
     }
 
-    public int getNumberOfMessages() throws MessagingException {
+    public static int getNumberOfMessages() throws MessagingException {
         return folder.getMessageCount();
     }
 
@@ -125,7 +128,7 @@ public class EmailUtils {
     /**
      * Gets all messages within the folder
      */
-    public Message[] getAllMessages() throws MessagingException {
+    public static Message[] getAllMessages() throws MessagingException {
         return folder.getMessages();
     }
 
@@ -143,7 +146,7 @@ public class EmailUtils {
      * @param unreadOnly Indicate whether to only return matched messages that are unread
      * @param maxToSearch maximum number of messages to search, starting from the latest. For example, enter 100 to search through the last 100 messages.
      */
-    public Message[] getMessagesBySubject(String subject, boolean unreadOnly, int maxToSearch) throws Exception{
+    public static Message[] getMessagesBySubject(String subject, boolean unreadOnly, int maxToSearch) throws Exception{
         Map<String, Integer> indices = getStartAndEndIndices(maxToSearch);
 
         Message messages[] = folder.search(
@@ -190,7 +193,7 @@ public class EmailUtils {
         return allMatches;
     }
 
-    private Map<String, Integer> getStartAndEndIndices(int max) throws MessagingException {
+    private static Map<String, Integer> getStartAndEndIndices(int max) throws MessagingException {
         int endIndex = getNumberOfMessages();
         int startIndex = endIndex - max;
 
@@ -222,7 +225,7 @@ public class EmailUtils {
         return messagesFound > 0;
     }
 
-    public boolean isMessageUnread(Message message) throws Exception {
+    public static boolean isMessageUnread(Message message) throws Exception {
         return !message.isSet(Flags.Flag.SEEN);}
 
         /**
@@ -231,14 +234,15 @@ public class EmailUtils {
          * And the line preceding the code begins with 'Authorization code:'
          * Change these items to whatever you need for your email. This is only an example.
          */
-        public String getVerificationCode() throws Exception {
-            Message email = getMessagesBySubject("Fishbowl validation code: ", true, 5)[0];
+        public static String getVerificationCode() throws Exception {
+            Message email = getMessagesBySubject("Verification Code for Fishbowl:", true, 5)[0];
             BufferedReader reader = new BufferedReader(new InputStreamReader(email.getInputStream()));
 
             String line;
             while ((line = reader.readLine()) != null) {
-                if(line.startsWith("Fishbowl validation code: ")) {
-                    return reader.readLine();
+                if(line.contains("Fishbowl validation code:")) {
+                    String code = CharMatcher.digit().retainFrom(line);
+                    return code;
                 }
             }
             return null;

@@ -6,9 +6,4 @@
         <class name="com.tests.SuccessfulRegularRegistration"></class>
         </classes>
     </test>
-    <test name="SuspendedUser" >
-        <classes>
-            <class name="com.tests.SuspendedUser"></class>
-        </classes>
-    </test>
 </suite>

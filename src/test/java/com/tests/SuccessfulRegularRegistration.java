@@ -33,7 +33,7 @@ public class SuccessfulRegularRegistration extends BaseTest {
 	@BeforeTest
 	public static void connectToEmail() {
 		try {
-			emailUtils = new EmailUtils("sentarshi@yandex.ua", "jZ$SD7GmzRby", "smtp.yandex.ru", EmailUtils.EmailFolder.INBOX);
+			emailUtils = new EmailUtils("sentarshi", "jbtxbtutvjvyinir", "imap.yandex.ru", EmailUtils.EmailFolder.INBOX);
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail(e.getMessage());
@@ -49,6 +49,7 @@ public class SuccessfulRegularRegistration extends BaseTest {
 		MainPage.openSignUp();
 		SignUpPage.selectImPro();
 		SignUpPage.enterWorkEmailDomain(testdataclass.getData("debugmaildomain"));
+		Thread.sleep(60000);
 		VerificationCodeModal.enterVerificationEmalCode();
 		PYMKPage.pushNext();
 		DivisionAndCrowdPage.chooseDivisionCrowd();

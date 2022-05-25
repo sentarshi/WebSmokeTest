@@ -35,7 +35,7 @@ public class SuspendedUser {
         open("https://webqa.fbowlapp.com");
         MainPage.openLogin();
         LoginPage.enterSuspendedEmail(testdataclass.getData("emaildomain"));
-        VerificationCodeModal.enterVerificationEmalCode();
+       VerificationCodeModal.enterVerificationEmalCode();
         SuspendPage.errorIcon.shouldBe(Condition.visible);
        SuspendPage.suspendModal.shouldBe(Condition.visible);
     }

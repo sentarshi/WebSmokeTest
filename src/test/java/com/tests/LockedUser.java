@@ -25,13 +25,13 @@ public class LockedUser {
             }
         }}
     @Test
-    public static void Signin() throws CloneNotSupportedException {
+    public static void Signin() throws Exception {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
         MainPage.openLogin();
         LoginPage.enterLockedEmail(testdataclass.getData("emaildomain"));
-        RegistrationModal.enterVerificationEmalCode();
+        VerificationCodeModal.enterVerificationEmalCode();
         LockedPage.COntactSupportButton.shouldBe(Condition.visible);
         LockedPage.verifyEmailButton.shouldBe(Condition.visible);
         LockedPage.verifyLinkedinButton.shouldBe(Condition.visible);
