@@ -4,6 +4,7 @@ import com.google.common.base.CharMatcher;
 
 import javax.mail.*;
 import javax.mail.search.SubjectTerm;
+import javax.naming.ldap.StartTlsRequest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -100,6 +101,7 @@ public class EmailUtils {
     public static String getEmailServerFromProperties(){
         return System.getProperty("email.server");
     }
+
     //************* EMAIL ACTIONS *******************
 
     public void openEmail(Message message) throws Exception{
