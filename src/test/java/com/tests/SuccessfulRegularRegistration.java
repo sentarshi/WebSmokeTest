@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class SuccessfulRegularRegistration extends BaseTest {
 
 	static testDataParser testdataclass;
-	private static EmailUtils emailUtils;
+
 	@BeforeTest
 
 	public static void parseTestData(){
@@ -30,19 +30,6 @@ public class SuccessfulRegularRegistration extends BaseTest {
 			e.printStackTrace();
 		}
 	}}
-	@BeforeTest
-	public static void connectToEmail() {
-		try {
-			emailUtils = new EmailUtils("vladimir.lektmanov@itechart-group.com",
-					"Slemazl24",
-					"webmail.itechart-group.com",
-
-					EmailUtils.EmailFolder.INBOX);
-		} catch (Exception e) {
-			e.printStackTrace();
-			Assert.fail(e.getMessage());
-		}
-	}
 
 
 	@Test
@@ -54,6 +41,7 @@ public class SuccessfulRegularRegistration extends BaseTest {
 		SignUpPage.selectImPro();
 		SignUpPage.enterWorkEmailDomain(testdataclass.getData("debugmaildomain"));
 		Thread.sleep(30000);
+		VerificationCodeModal.connectToEmail();
 		VerificationCodeModal.enterVerificationEmalCode();
 		PYMKPage.pushNext();
 		DivisionAndCrowdPage.chooseDivisionCrowd();
