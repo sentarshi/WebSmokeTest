@@ -16,20 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class SuccessfulRegularRegistration extends BaseTest {
-
-	static testDataParser testdataclass;
-
 	@BeforeTest
-
-	public static void parseTestData(){
-
-	{
-		try {
-			testdataclass = new testDataParser().read();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}}
 
 
 	@Test
@@ -63,7 +50,7 @@ public class SuccessfulRegularRegistration extends BaseTest {
 	@AfterTest
 	private static void borwserclose(){
 		closeWindow();
+
+
 	}
-
-
 }

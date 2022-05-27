@@ -7,11 +7,13 @@ import com.pages.MainPage;
 import com.pages.VerificationCodeModal;
 import com.pages.SuspendPage;
 import com.util.testDataParser;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SuspendedUser {
@@ -29,7 +31,7 @@ public class SuspendedUser {
             }
         }}
     @Test
-    public static void Signin() throws Exception {
+    public static void suspendUser() throws Exception {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
@@ -38,6 +40,11 @@ public class SuspendedUser {
        VerificationCodeModal.enterVerificationEmalCode();
         SuspendPage.errorIcon.shouldBe(Condition.visible);
        SuspendPage.suspendModal.shouldBe(Condition.visible);
+    }
+
+    @AfterTest
+    private static void borwserclose(){
+        closeWindow();
     }
 
 }
