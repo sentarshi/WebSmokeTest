@@ -1,32 +1,25 @@
-package com.tests;
+package com.tests_prod;
 import com.codeborne.selenide.Configuration;
 import com.pages.*;
-import com.util.EmailUtils;
-import com.util.testDataParser;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
+
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.*;
 
 
-public class SuccessfulRegularRegistration extends BaseTest {
-	@BeforeTest
-
-
+public class SuccessfulRegularRegistrationProd extends BaseTest {
 	@Test
 	public static void Signin() throws Exception {
 		Configuration.browser = "firefox";
 		Configuration.browserSize = "1920x1080";
-		open("https://webqa.fbowlapp.com");
+		open("https://fishbowlapp.com");
 		MainPage.openSignUp();
 		SignUpPage.selectImPro();
-		SignUpPage.enterWorkEmailDomain(testdataclass.getData("debugmaildomain"));
+		SignUpPage.enterWorkEmailDomainProd(testdataclass.getData("prodemaildomain"));
 		Thread.sleep(30000);
 		VerificationCodeModal.connectToEmail();
 		VerificationCodeModal.enterVerificationEmalCode();

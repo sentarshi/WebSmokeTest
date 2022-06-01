@@ -3,17 +3,22 @@
 <suite name="SmoketestWebapp" verbose="1" >
     <test name="SuccessfulRegistration" >
         <classes>
-        <class name="com.tests.SuccessfulRegularRegistration"></class>
+        <class name="com.tests_stage.SuccessfulRegularRegistrationStage"></class>
+        </classes>
+    </test>
+    <test name="Restricted User" >
+        <classes>
+            <class name="com.tests_stage.RestrictedUserStage"></class>
         </classes>
     </test>
     <test name="Suspended User" >
         <classes>
-            <class name="com.tests.SuspendedUser"></class>
+            <class name="com.tests_stage.SuspendedUserStage"></class>
         </classes>
     </test>
     <test name="Locked USer" >
         <classes>
-            <class name="com.tests.LockedUser"></class>
+            <class name="com.tests_stage.LockedUserStage"></class>
         </classes>
     </test>
 </suite>

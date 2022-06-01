@@ -1,4 +1,4 @@
 {
-  "emaildomain": "kk.com",
-  "debugmaildomain": "itechart-group.com"
+  "stageemaildomain": "kk.com",
+  "prodemaildomain": "itechart-group.com"
 }

@@ -47,9 +47,13 @@ public class SignUpPage extends BasePage {
 	}
 
 	//Enter data into work email field
-	public static void enterWorkEmailDomain(String text) {
+	public static void enterWorkEmailDomainStage(String text) {
 		String email = Double.toString(Math.random());
-		//emailInputField.sendKeys(email + "@" + text);
+		emailInputField.sendKeys(email + "@" + text);
+		submitButtonEmailField.click();
+	}
+	public static void enterWorkEmailDomainProd(String text) {
+		String email = Double.toString(Math.random());
 		emailInputField.sendKeys("vladimir.lektmanov"+"@"+ text);
 		submitButtonEmailField.click();
 	}

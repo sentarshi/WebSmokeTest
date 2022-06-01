@@ -33,12 +33,18 @@ public class VerificationCodeModal extends BasePage {
 
 
 	public static void enterVerificationEmalCode() throws Exception {
-		//emailVerificationInput.sendKeys("1111");
+		//
 		System.out.println("Nepro4itanno"+EmailUtils.getNumberOfMessages());
 		emailVerificationInput.click();
 		String code = EmailUtils.getVerificationCode();
 		System.out.println("COD PRILAGI"+ code);
 		emailVerificationInput.setValue(code);
+		industrySelectorTitle.isDisplayed();
+	}
+
+	public static void enterVerificationEmailCodeBackDoor(){
+		emailVerificationInput.click();
+		emailVerificationInput.sendKeys("11111");
 		industrySelectorTitle.isDisplayed();
 	}
 
