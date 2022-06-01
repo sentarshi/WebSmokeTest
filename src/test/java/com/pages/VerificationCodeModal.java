@@ -16,7 +16,7 @@ public class VerificationCodeModal extends BasePage {
 
 	private static SelenideElement submitButtonEmailField = $(By.cssSelector("button[aria-label='submit']"));
 	private static SelenideElement emailVerificationInput = $(By.cssSelector("input[aria-label='digits code']"));
-	private static SelenideElement industrySelectorTitle = $(By.cssSelector("div[lass='title-text']"));
+	private static SelenideElement industrySelectorTitle = $(By.cssSelector("div[class='title-text']"));
 
 	public static void connectToEmail() {
 		try {

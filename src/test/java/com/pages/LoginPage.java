@@ -27,4 +27,9 @@ public class LoginPage extends BasePage {
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
+    public static void enterDeactivatedActivatedEmail(String text) {
+        String email = "deactivateactivate";
+        emailInputField.sendKeys(email + "@" + text);
+        submitButtonEmailField.click();
+    }
 }

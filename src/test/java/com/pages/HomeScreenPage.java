@@ -15,4 +15,10 @@ public class HomeScreenPage extends BasePage {
 	public static void ensure() {
 		userProfilePage.shouldBe(Condition.visible, Condition.enabled);
 	}
+
+	private static SelenideElement settingsButton = $(By.cssSelector("title='Settings icon']"));
+
+	public static void navigatToSettings(){
+		settingsButton.click();
+	}
 }
