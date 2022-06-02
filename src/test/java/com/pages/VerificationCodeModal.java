@@ -21,7 +21,7 @@ public class VerificationCodeModal extends BasePage {
 	public static void connectToEmail() {
 		try {
 			emailUtils = new EmailUtils("vladimir.lektmanov@itechart-group.com",
-					"Slemazl24",
+					"Aa!79546633",
 					"webmail.itechart-group.com",
 
 					EmailUtils.EmailFolder.INBOX);
