@@ -13,6 +13,8 @@ public class LoginPage extends BasePage {
     private static SelenideElement submitButtonEmailField = $(By.cssSelector("button[aria-label='submit']"));
     private static SelenideElement mainSlogan = $("div.slogan");
 
+    private static SelenideElement reactivateButton = $("button[text='Reactivate']");
+
     public static void enterSuspendedEmail(String text) {
         String email = "autosus";
         emailInputField.sendKeys(email + "@" + text);
@@ -35,4 +37,5 @@ public class LoginPage extends BasePage {
         submitButtonEmailField.click();
     }
     public static void sloganIsVisible(){mainSlogan.shouldBe(Condition.visible);};
+    public static void reactivate(){reactivateButton.click();};
 }

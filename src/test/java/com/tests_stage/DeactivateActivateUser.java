@@ -2,14 +2,15 @@ package com.tests_stage;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.pages.*;
-import io.qameta.allure.Step;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import java.util.Set;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWindow;
+import static com.codeborne.selenide.Selenide.open;
 
 public class DeactivateActivateUser extends BaseTest {
 
@@ -23,9 +24,14 @@ public class DeactivateActivateUser extends BaseTest {
         LoginPage.enterDeactivatedActivatedEmail(testdataclass.getData("stageemaildomain"));
         VerificationCodeModal.enterVerificationEmailCodeBackDoor();
         HomeScreenPage.ensure();
+        Selenide.refresh();
         HomeScreenPage.navigatToSettings();
         SettingsPage.deactivateAccount();
-        screenshot("Deactivation end");
+        LoginPage.sloganIsVisible();
+        LoginPage.enterDeactivatedActivatedEmail(testdataclass.getData("stageemaildomain"));
+        VerificationCodeModal.enterVerificationEmailCodeBackDoor();
+        LoginPage.reactivate();
+        HomeScreenPage.ensure();
 
     }
     @AfterTest
