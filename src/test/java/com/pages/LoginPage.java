@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
@@ -13,7 +14,7 @@ public class LoginPage extends BasePage {
     private static SelenideElement submitButtonEmailField = $(By.cssSelector("button[aria-label='submit']"));
     private static SelenideElement mainSlogan = $("div.slogan");
 
-    private static SelenideElement reactivateButton = $("button[text='Reactivate']");
+    private static SelenideElement reactivateButton = $(byText("Reactivate"));
 
     public static void enterSuspendedEmail(String text) {
         String email = "autosus";
