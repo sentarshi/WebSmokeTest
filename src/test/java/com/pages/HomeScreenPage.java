@@ -24,6 +24,8 @@ public class HomeScreenPage extends BasePage {
 
 	private static SelenideElement onesignalAllow = $(byText("NO THANKS"));
 
+	private static SelenideElement suggestedPosts = $(byText("IN CASE YOU MISSED IT"));
+
 	public static void navigatToSettings(){
 		settingsButton.shouldBe(Condition.visible, Duration.ofSeconds(15));
 		settingsButton.click();
@@ -34,4 +36,8 @@ public class HomeScreenPage extends BasePage {
 		onesignalAllow.shouldBe(Condition.exist,Duration.ofSeconds(10));
 		onesignalAllow.click();
 	};
+
+	public static void checkSuggestedPosts(){
+		suggestedPosts.shouldBe(Condition.exist);
+	}
 }
