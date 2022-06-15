@@ -26,6 +26,8 @@ public class HomeScreenPage extends BasePage {
 
 	private static SelenideElement suggestedPosts = $(byText("IN CASE YOU MISSED IT"));
 
+	private static SelenideElement searchField = $("#application-search");
+
 	public static void navigatToSettings(){
 		settingsButton.shouldBe(Condition.visible, Duration.ofSeconds(15));
 		settingsButton.click();
@@ -40,4 +42,10 @@ public class HomeScreenPage extends BasePage {
 	public static void checkSuggestedPosts(){
 		suggestedPosts.shouldBe(Condition.exist);
 	}
+	public static void  searchforaword(String searchTerm){
+		searchField.click();
+		searchField.setValue(searchTerm);
+		searchField.pressEnter();
+	}
+
 }

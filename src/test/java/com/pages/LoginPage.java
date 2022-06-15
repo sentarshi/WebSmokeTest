@@ -37,6 +37,11 @@ public class LoginPage extends BasePage {
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
+    public static void enterRegularUserEmail(String text) {
+        String email = "te6";
+        emailInputField.sendKeys(email + "@" + text);
+        submitButtonEmailField.click();
+    }
     public static void sloganIsVisible(){mainSlogan.shouldBe(Condition.visible);};
     public static void reactivate(){reactivateButton.click();};
 }
