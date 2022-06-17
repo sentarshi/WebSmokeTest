@@ -23,11 +23,11 @@ public class SuspendedUserStage extends BaseTest {
         LoginPage.enterSuspendedEmail(testdataclass.getData("stageemaildomain"));
         VerificationCodeModal.enterVerificationEmailCodeBackDoor();
         SuspendPage.errorIcon.shouldBe(Condition.visible);
-       SuspendPage.suspendModal.shouldBe(Condition.visible);
+        SuspendPage.suspendModal.shouldBe(Condition.visible);
     }
 
     @AfterTest
-    private static void borwserclose(){
+    private static void borwserclose() {
         closeWindow();
     }
 

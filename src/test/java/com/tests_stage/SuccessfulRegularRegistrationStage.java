@@ -36,8 +36,9 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
         UpdatePictureModal.noimage();
         HomeScreenPage.ensure();
     }
+
     @AfterTest
-    private static void borwserclose(){
+    private static void borwserclose() {
         closeWindow();
 
 

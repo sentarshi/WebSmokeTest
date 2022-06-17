@@ -27,8 +27,9 @@ public class LockedUserStage extends BaseTest {
         LockedPage.verifyEmailButton.shouldBe(Condition.visible);
         LockedPage.verifyLinkedinButton.shouldBe(Condition.visible);
     }
+
     @AfterTest
-    private static void borwserclose(){
+    private static void borwserclose() {
         closeWindow();
     }
 

@@ -37,8 +37,9 @@ public class IsSuggestedPostsShown extends BaseTest {
         HomeScreenPage.checkSuggestedPosts();
         screenshot("SuggestedPosts");
     }
+
     @AfterTest
-    private static void borwserclose(){
+    private static void borwserclose() {
         closeWindow();
 
 

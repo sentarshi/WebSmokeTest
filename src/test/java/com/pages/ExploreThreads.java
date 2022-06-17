@@ -7,15 +7,10 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class ExploreThreads extends BasePage {
 
-    public static boolean checksearchterm(String term) {
-
+    public static ElementsCollection parseElements()
+    {
         ElementsCollection searchresults = $$(".post-content");
-        for (int i = 0; i < searchresults.size(); i++) {
-            String l = searchresults.get(i).getText();
-            System.out.println(l);
-            if (l.contains(term) == true){
-
-            }
-        }
+        return searchresults;
     }
 }
+

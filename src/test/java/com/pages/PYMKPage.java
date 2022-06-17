@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PYMKPage extends BasePage {
 
-	private static SelenideElement nextButton = $(By.cssSelector("button[class='fsb-button next-btn']"));
-	private static SelenideElement pymklLabel = $(By.className("pymk-label"));
+    private static SelenideElement nextButton = $(By.cssSelector("button[class='fsb-button next-btn']"));
+    private static SelenideElement pymklLabel = $(By.className("pymk-label"));
 
-	public static void pushNext() {
-		nextButton.shouldHave(text("Next"));
-		nextButton.click();
-	}
+    public static void pushNext() {
+        nextButton.shouldHave(text("Next"));
+        nextButton.click();
+    }
 
 }

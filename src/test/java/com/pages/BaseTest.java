@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public abstract class  BaseTest {
+public abstract class BaseTest {
 
     public static testDataParser testdataclass;
+
     @BeforeTest
-    public static void parseTestData(){
+    public static void parseTestData() {
 
         {
             try {
@@ -18,9 +19,8 @@ public abstract class  BaseTest {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }}
-
-
+        }
+    }
 
 
 }

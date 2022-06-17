@@ -22,16 +22,23 @@ public class LoginPage extends BasePage {
         submitButtonEmailField.click();
     }
 
+    public static void enterRegularAccountEmail(String text) {
+        String email = "autoregular";
+        emailInputField.sendKeys(email + "@" + text);
+        submitButtonEmailField.click();
+    }
     public static void enterRestrictedEmail(String text) {
         String email = "autorest";
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
+
     public static void enterLockedEmail(String text) {
         String email = "autolock";
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
+
     public static void enterDeactivatedActivatedEmail(String text) {
         String email = "deactivateactivate";
         emailInputField.sendKeys(email + "@" + text);
@@ -42,6 +49,16 @@ public class LoginPage extends BasePage {
         emailInputField.sendKeys(email + "@" + text);
         submitButtonEmailField.click();
     }
-    public static void sloganIsVisible(){mainSlogan.shouldBe(Condition.visible);};
-    public static void reactivate(){reactivateButton.click();};
+
+    public static void sloganIsVisible() {
+        mainSlogan.shouldBe(Condition.visible);
+    }
+
+    ;
+
+    public static void reactivate() {
+        reactivateButton.click();
+    }
+
+    ;
 }

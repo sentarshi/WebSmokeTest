@@ -24,7 +24,7 @@ public class DeactivateActivateUser extends BaseTest {
         LoginPage.enterDeactivatedActivatedEmail(testdataclass.getData("stageemaildomain"));
         VerificationCodeModal.enterVerificationEmailCodeBackDoor();
         HomeScreenPage.ensure();
-         //Selenide.refresh();
+        //Selenide.refresh();
         HomeScreenPage.notAllowNotifications();
         HomeScreenPage.navigatToSettings();
         SettingsPage.deactivateAccount();
@@ -35,8 +35,9 @@ public class DeactivateActivateUser extends BaseTest {
         HomeScreenPage.ensure();
 
     }
+
     @AfterTest
-    private static void borwserclose(){
+    private static void borwserclose() {
         closeWindow();
     }
 
