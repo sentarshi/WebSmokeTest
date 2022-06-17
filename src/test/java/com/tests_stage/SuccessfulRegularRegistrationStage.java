@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SuccessfulRegularRegistrationStage extends BaseTest {
     @Test
-    public static void Signin() throws Exception {
+    public static void Signup() throws Exception {
         Configuration.browser = "firefox";
         Configuration.browserSize = "1920x1080";
         open("https://webqa.fbowlapp.com");
