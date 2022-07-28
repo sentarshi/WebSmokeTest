@@ -20,10 +20,8 @@ public class VerificationCodeModal extends BasePage {
 
     public static void connectToEmail() {
         try {
-            emailUtils = new EmailUtils("vladimir.lektmanov@itechart-group.com",
-                    "Aa!79546633",
-                    "webmail.itechart-group.com",
-
+            emailUtils = new EmailUtils("vova.lektmanov@glassdoor.com", "Aa!79546633",
+                    "imap.gmail.com",
                     EmailUtils.EmailFolder.INBOX);
         } catch (Exception e) {
             e.printStackTrace();

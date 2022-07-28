@@ -1,4 +1,5 @@
 {
-  "stageemaildomain": "kk.com",
-  "prodemaildomain": "itechart-group.com"
+  "stageemaildomain": "glassdoor.com",
+  "prodemaildomain": "glassdoor.com",
+  "stageeduemaildomain" : "upenn14.edu"
 }

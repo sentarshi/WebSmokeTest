@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.selector.ByAttribute;
 import org.openqa.selenium.By;
 
+import java.util.Random;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class SignUpPage extends BasePage {
@@ -50,13 +52,13 @@ public class SignUpPage extends BasePage {
     //Enter data into work email field
     public static void enterWorkEmailDomainStage(String text) {
         String email = Double.toString(Math.random());
-        emailInputField.sendKeys(email + "@" + text);
+        emailInputField.sendKeys("vova.lektmanov+"+email + "@" + text);
         submitButtonEmailField.click();
     }
 
     public static void enterWorkEmailDomainProd(String text) {
         String email = Double.toString(Math.random());
-        emailInputField.sendKeys("vladimir.lektmanov" + "@" + text);
+        emailInputField.sendKeys("vova.lektmanov" + email+ "@" + text);
         submitButtonEmailField.click();
     }
 }

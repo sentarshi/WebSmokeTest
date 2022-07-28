@@ -18,7 +18,8 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
         SignUpPage.selectImPro();
         SignUpPage.enterWorkEmailDomainStage(testdataclass.getData("stageemaildomain"));
         VerificationCodeModal.connectToEmail();
-        VerificationCodeModal.enterVerificationEmailCodeBackDoor();
+        Thread.sleep(30000);
+        VerificationCodeModal.enterVerificationEmalCode();
         PYMKPage.pushNext();
         DivisionAndCrowdPage.chooseDivisionCrowd();
         DivisionAndCrowdPage.pushNext();
@@ -32,6 +33,7 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
         BirthDayGenderPage.selectYear();
         BirthDayGenderPage.setGender();
         BirthDayGenderPage.pushNext();
+        JoinXBowls.passAddBowlsModal();
         DownloadAppModal.closemodal();
         UpdatePictureModal.noimage();
         HomeScreenPage.ensure();

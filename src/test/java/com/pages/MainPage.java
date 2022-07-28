@@ -4,13 +4,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Link;
 import org.openqa.selenium.By;
 
 public class MainPage extends BasePage {
     //locators
     private SelenideElement fishbowlLogo = $(By.className("logo"));
 
-    private static SelenideElement mainMenu = $(By.cssSelector(".navbar-list.flex"));
+    private static SelenideElement mainMenu = $(By.cssSelector(".unauthorized"));
     private static SelenideElement insightsButton = mainMenu.$(By.linkText("Insights"));
     private static SelenideElement aboutButton = mainMenu.$(By.linkText("About"));
     private static SelenideElement commGuidlinesButton = mainMenu.$(By.linkText("Community Guidelines"));
