@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.util.Utils;
@@ -24,6 +25,7 @@ public class JoinXBowls extends BasePage{
     private static SelenideElement submitOnRequestModal = $(".fsb-button.flex-center.js-loading-btn-submit");
 
     public static void passAddBowlsModal () throws InterruptedException {
+        modalHeader.shouldBe(Condition.visible);
         if (modalHeader.getText().contains("Join More Bowls!")){
             nextButton.click();
         }

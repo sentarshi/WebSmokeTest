@@ -18,7 +18,7 @@ public class NameAndTitlePage extends BasePage {
         return nameAndTitleIsdisplayed;
     }
 
-    public static void enterFirstName() {
+    public static void  enterFirstName() {
         firstName.setValue("Mister");
     }
 

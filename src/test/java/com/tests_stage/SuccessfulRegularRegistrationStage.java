@@ -1,6 +1,7 @@
 package com.tests_stage;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.pages.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -33,6 +34,7 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
         BirthDayGenderPage.selectYear();
         BirthDayGenderPage.setGender();
         BirthDayGenderPage.pushNext();
+        Selenide.sleep(3000);
         JoinXBowls.passAddBowlsModal();
         DownloadAppModal.closemodal();
         UpdatePictureModal.noimage();
