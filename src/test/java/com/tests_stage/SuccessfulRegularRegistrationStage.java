@@ -30,11 +30,13 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
         NameAndTitlePage.enterTitle();
         NameAndTitlePage.pushNext();
         BirthDayGenderPage.selectDay();
+
         BirthDayGenderPage.selectMonth();
         BirthDayGenderPage.selectYear();
         BirthDayGenderPage.setGender();
         BirthDayGenderPage.pushNext();
-        Selenide.sleep(3000);
+        Selenide.sleep(2000);
+        HomeScreenPage.notAllowNotifications();
         JoinXBowls.passAddBowlsModal();
         DownloadAppModal.closemodal();
         UpdatePictureModal.noimage();
@@ -44,7 +46,6 @@ public class SuccessfulRegularRegistrationStage extends BaseTest {
     @AfterTest
     private static void borwserclose() {
         closeWindow();
-
 
     }
 }

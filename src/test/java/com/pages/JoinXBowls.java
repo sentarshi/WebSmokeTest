@@ -25,7 +25,7 @@ public class JoinXBowls extends BasePage{
     private static SelenideElement submitOnRequestModal = $(".fsb-button.flex-center.js-loading-btn-submit");
 
     public static void passAddBowlsModal () throws InterruptedException {
-        modalHeader.shouldBe(Condition.visible);
+       // modalHeader.shouldBe(Condition.visible);
         if (modalHeader.getText().contains("Join More Bowls!")){
             nextButton.click();
         }
@@ -36,7 +36,9 @@ public class JoinXBowls extends BasePage{
                     if (requestMessageModal.exists()){
                         addANoteRequestField.sendKeys("Test");
                         submitOnRequestModal.click();
+
                     }
+                nextButton.click();
             }
         }
     }
